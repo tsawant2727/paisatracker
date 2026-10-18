@@ -1,4 +1,4 @@
-import { AccountCard } from "@/components/AccountCard";
+import { EditableAccountCard } from "@/components/EditableAccountCard";
 import { AddAccountForm } from "./AddAccountForm";
 import { getAccountBalances } from "@/lib/analytics";
 import { getCurrentUserId } from "@/lib/user";
@@ -28,7 +28,11 @@ export default async function AccountsPage() {
 
       <div className="grid gap-3">
         {accounts.map((a) => (
-          <AccountCard key={a.id} account={a} balancePaise={a.balancePaise} />
+          <EditableAccountCard
+            key={a.id}
+            account={a}
+            balancePaise={a.balancePaise}
+          />
         ))}
       </div>
 

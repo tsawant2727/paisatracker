@@ -14,7 +14,7 @@ export function AddAccountForm() {
 
   return (
     <section className="rounded-2xl border border-[var(--border-subtle)] bg-[var(--bg-muted)]/50 p-4">
-      <h2 className="font-display text-lg font-semibold">Naya account</h2>
+      <h2 className="font-display text-lg font-semibold">New account</h2>
       <div className="mt-3 space-y-3">
         <input
           value={name}
