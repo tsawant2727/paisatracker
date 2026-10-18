@@ -1,0 +1,17 @@
+{
+  "name": "Paisa Tracker",
+  "short_name": "Paisa",
+  "description": "Daily money in/out, budgets, and insights",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f14",
+  "theme_color": "#0b0f14",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

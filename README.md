@@ -1,36 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Paisa Tracker
 
-## Getting Started
+Mobile-first personal finance tracker — **PRD.md follow kar** for product rules.
 
-First, run the development server:
+## Run locally
 
 ```bash
+npm install
+cp .env.example .env.local   # optional — defaults work without this
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) on your phone (same Wi‑Fi) or use DevTools mobile view.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+SQLite DB is created at `./data/paisa.db` on first request. Default seed: categories (PRD §6), HDFC / Cash / Credit Card accounts.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## MVP screens
 
-## Learn More
+| Route | Purpose |
+|-------|---------|
+| `/` | Net worth, today + month flow, safe-to-spend, budgets, accounts |
+| `/transactions` | Ledger with month / in-out / search |
+| `/accounts` | Multi-account balances + add account |
+| `/budgets` | Monthly category limits |
+| `/reports` | Daily breakdown + monthly analysis & tips |
 
-To learn more about Next.js, take a look at the following resources:
+**Quick add:** green **+** FAB — Kharch / Aaya / Transfer in ~3 taps.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Core rules (short)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Amounts in **paise** (integers)
+- Transfers = paired rows, excluded from income/expense reports
+- CC balance reduces net worth when type is `credit`
 
-## Deploy on Vercel
+## PWA
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Add to Home Screen via browser menu. Icons: replace `public/icon-192.png` and `public/icon-512.png` (optional — generate from your logo).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Env
+
+Template: [`.env.example`](.env.example) → copy to **`.env.local`** (Next.js auto-loads it; gitignored).
+
+| Variable | Required? | Default | Use |
+|----------|-----------|---------|-----|
+| `DATABASE_PATH` | No | `./data/paisa.db` | App SQLite file |
+| `DATABASE_URL` | No | `./data/paisa.db` | Drizzle Kit CLI |
+| `PAISA_USER_ID` | No | `user-local-1` | Single-user id |
+
+Auth keys, bank API, Claude, etc. abhi MVP mein nahi — P1/P2 (PRD) pe add honge.
