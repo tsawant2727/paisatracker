@@ -1,0 +1,27 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#141b24"/>
+      <stop offset="1" stop-color="#0b0f14"/>
+    </linearGradient>
+    <linearGradient id="fg" x1="0.2" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#6bffc2"/>
+      <stop offset="1" stop-color="#2ee89a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.72" cy="0.24" r="0.85">
+      <stop offset="0" stop-color="#3dffa8" stop-opacity="0.30"/>
+      <stop offset="1" stop-color="#3dffa8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect width="512" height="512" rx="112" fill="url(#glow)"/>
+  <g transform="translate(256 256) scale(1) translate(-256 -256)">
+    <g fill="url(#fg)">
+      <rect x="166" y="150" width="180" height="30" rx="15"/>
+      <rect x="166" y="212" width="180" height="30" rx="15"/>
+    </g>
+    <g stroke="url(#fg)" stroke-width="30" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M196 165 q92 4 92 76 q0 72 -92 76 l108 128"/>
+    </g></g>
+</svg>

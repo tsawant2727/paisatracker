@@ -28,6 +28,8 @@ export function proxy(req: NextRequest) {
 }
 
 export const config = {
-  // Run on everything except Next internals, static assets and the PWA manifest.
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|manifest.webmanifest).*)"],
+  // Run on app routes only. Skip Next internals and any static file (anything
+  // with a dot: /sw.js, /icons/*.png, /manifest.webmanifest, /favicon.ico …)
+  // so PWA assets stay reachable without a session.
+  matcher: ["/((?!_next/static|_next/image|.*\\..*).*)"],
 };
